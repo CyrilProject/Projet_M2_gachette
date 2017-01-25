@@ -45,9 +45,9 @@ NRF_GPIOTE->INTENSET = (GPIOTE_INTENSET_IN0_Enabled << GPIOTE_INTENSET_IN0_Pos) 
                                         
 //nrf_gpio_cfg_output(LED2);
 //nrf_gpio_pin_clear(LED2);
-  nrf_gpio_cfg_output(1);
+//  nrf_gpio_cfg_output(1);
   nrf_gpio_cfg_output(2);
-  nrf_gpio_cfg_output(3);
+//nrf_gpio_cfg_output(3);
   nrf_gpio_cfg_output(4);
   //nrf_gpio_cfg_output(5);
   nrf_gpio_cfg_output(6);
@@ -69,9 +69,9 @@ NRF_GPIOTE->INTENSET = (GPIOTE_INTENSET_IN0_Enabled << GPIOTE_INTENSET_IN0_Pos) 
   nrf_gpio_cfg_output(28);
   nrf_gpio_cfg_output(29);
   nrf_gpio_cfg_output(30);
-  nrf_gpio_pin_clear(1);
+  //nrf_gpio_pin_clear(1);
   nrf_gpio_pin_clear(2);
-  nrf_gpio_pin_clear(3);
+  //nrf_gpio_pin_clear(3);
   nrf_gpio_pin_clear(4);
   //nrf_gpio_pin_clear(5);
   nrf_gpio_pin_clear(6);
@@ -93,8 +93,8 @@ NRF_GPIOTE->INTENSET = (GPIOTE_INTENSET_IN0_Enabled << GPIOTE_INTENSET_IN0_Pos) 
   nrf_gpio_pin_clear(28);
   nrf_gpio_pin_clear(29);
   nrf_gpio_pin_clear(30);
-//nrf_gpio_cfg_output(LED);
-  //nrf_gpio_pin_clear(LED);
+  nrf_gpio_cfg_output(LED);
+  nrf_gpio_pin_clear(LED);
 //nrf_gpio_cfg_output(PIN_BUCK);
 //nrf_gpio_pin_clear(PIN_BUCK); // we will change it when the consuption will be ok
 }

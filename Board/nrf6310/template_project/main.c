@@ -66,7 +66,6 @@ int main(void)
 //   NRF_POWER->TASKS_LOWPWR = 1;
 //   gpiote_init();
 
-
   /*********************
    *    DECLARATION    *
    *********************/
@@ -100,9 +99,20 @@ int main(void)
    /**************************
     *        MAIN LOOP       *
     **************************/
+//   nrf_gpio_pin_set(LED);
+   
    while (true)
    {     
      __WFI(); // idle mode
+//     if (count %2 == 0)
+//     {
+//       //nrf_gpio_pin_set(LED);
+//       
+//     }
+//     else 
+//     {
+//       //nrf_gpio_pin_clear(LED);
+//     }
    }
 }
 
@@ -113,11 +123,11 @@ int main(void)
 void GPIOTE_IRQHandler(void)
 {
   volatile uint8_t flag_A, flag_B, count;
-  
+   nrf_gpio_pin_set(LED);
   // Interruption on the pin for signal A
   if (NRF_GPIOTE->EVENTS_IN[0] == 1)
   {
-    
+    nrf_gpio_pin_toggle(LED);
     flag_A = 1;
     if( flag_B == 0 )
     {
@@ -141,6 +151,7 @@ void GPIOTE_IRQHandler(void)
     flag_B = 1;
     if( flag_A == 0 )
     {
+     
       if ( count > 0)
       {
         
@@ -155,13 +166,7 @@ void GPIOTE_IRQHandler(void)
     NRF_GPIOTE->EVENTS_IN[1] = 0;
   }
       
-      
-    
-    
-  
-  // Event causing the interrupt must be cleared
-  
-  NVIC_DisableIRQ(GPIOTE_IRQn);
+ 
   
 }
 

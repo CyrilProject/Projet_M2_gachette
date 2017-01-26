@@ -40,8 +40,8 @@
 #include "nordic_common.h"
 
 
-#define MAX_VALUE 255
-#define SIZE_PACKET 15
+#define MAX_VALUE       255
+#define SIZE_PACKET     15
 
 
 

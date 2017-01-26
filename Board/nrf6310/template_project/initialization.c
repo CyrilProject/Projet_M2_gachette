@@ -44,6 +44,7 @@
 
   // Enable interrupt for NRF_GPIOTE->EVENTS_IN[0] event
   //NRF_GPIOTE->INTENSET = GPIOTE_INTENSET_IN0_Enabled<<GPIOTE_INTENSET_PORT_Pos;
+  
 NRF_GPIOTE->INTENSET = (GPIOTE_INTENSET_PORT_Enabled << GPIOTE_INTENSET_PORT_Pos); //&& (GPIOTE_INTENSET_IN1_Enabled << GPIOTE_INTENSET_IN0_Pos);
                                         
 //nrf_gpio_cfg_output(LED2);

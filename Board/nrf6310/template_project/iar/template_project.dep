@@ -2,241 +2,102 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>3823076381</fileChecksum>
+  <fileChecksum>2811944463</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Obj\initialization.__cstat.et</file>
-      <file>$PROJ_DIR$\..\spi_master_config.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</file>
-      <file>$PROJ_DIR$\..\adc.h</file>
-      <file>$PROJ_DIR$\..\initialization.c</file>
-      <file>$PROJ_DIR$\..\adc.c</file>
-      <file>$PROJ_DIR$\..\initialization.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</file>
-      <file>$PROJ_DIR$\..\main.c</file>
-      <file>$PROJ_DIR$\..\radio_config.c</file>
-      <file>$PROJ_DIR$\..\radio_config.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\adc.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
       <file>$PROJ_DIR$\Debug\Obj\system_nrf51.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\radio_config.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\adc.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\initialization.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\spi_master.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spi_master.o</file>
       <file>$PROJ_DIR$\Debug\Obj\radio_config.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\iar_startup_nrf51.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\spi_master.pbi</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\common.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\spi_master.o</file>
       <file>$PROJ_DIR$\Debug\Obj\adc.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\common.h</file>
       <file>$PROJ_DIR$\Debug\Obj\main.o</file>
       <file>$PROJ_DIR$\Debug\Obj\adc.pbi</file>
-      <file>$PROJ_DIR$\Debug\Exe\template_project_iar.hex</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51.h</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
       <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_bitfields.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\template_project_iar.hex</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51.h</file>
       <file>$TOOLKIT_DIR$\inc\c\math.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_delay.h</file>
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_bitfields.h</file>
       <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_delay.h</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nordic_common.h</file>
       <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\initialization.pbi</file>
       <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nordic_common.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Source\spi_master\spi_master.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\initialization.pbi</file>
+      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmInstr.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpiote.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\spi_master.h</file>
       <file>$PROJ_DIR$\Debug\Obj\template_project.pbd</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\spi_master\spi_master.c</file>
-      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmInstr.h</file>
       <file>$TOOLKIT_DIR$\CMSIS\Include\core_cm0.h</file>
-      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\compiler_abstraction.h</file>
       <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmFunc.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
+      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\nrf.h</file>
       <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
-      <file>$PROJ_DIR$\Debug\List\template_project.map</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
       <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
       <file>$TOOLKIT_DIR$\lib\dl6M_tln.a</file>
+      <file>$PROJ_DIR$\Debug\List\template_project.map</file>
       <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
       <file>$TOOLKIT_DIR$\lib\rt6M_tl.a</file>
       <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
       <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
       <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\initialization.o</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
       <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\initialization.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\radio_config.__cstat.et</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\system_nrf51.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_deprecated.h</file>
       <file>$PROJ_DIR$\Debug\Exe\template_project.out</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\radio_config.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.__cstat.et</file>
+      <file>$PROJ_DIR$\..\adc.h</file>
+      <file>$PROJ_DIR$\..\adc.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</file>
+      <file>$PROJ_DIR$\..\initialization.c</file>
+      <file>$PROJ_DIR$\..\initialization.h</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\radio_config.c</file>
+      <file>$PROJ_DIR$\..\radio_config.h</file>
+      <file>$PROJ_DIR$\..\spi_master_config.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</file>
+      <file>$PROJ_DIR$\..\uart.c</file>
+      <file>$PROJ_DIR$\..\uart.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\radio_config.o</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 58</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 13</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 65</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 24 44 61 42 26 57 46 48 31 25 63 56 60 34 32 27 62 41 55 45</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 26 61 31 60 25 44 34 32 56 48 24 42 41 57 55 46 62 27 63 45</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 64 50</file>
+          <file> 55 41</file>
         </tool>
       </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\initialization.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 35</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 59</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 0</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 24 37 44 48 60 61 63 57 6 47 34 25 62 26 46 27 3 29 31 32 45 42 41 55 56</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 56 26 61 31 60 25 44 34 32 6 3 48 24 42 41 57 55 46 62 27 63 45 47 29 37</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\adc.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 22</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 20</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 11</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 60 61 62 26 44 46 34 25 27 57 47 31 32 24 42 41 55 3</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 3 26 61 31 60 25 44 34 32 47 24 42 41 57 55 46 62 27</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</name>
-      <outputs>
-        <tool>
-          <name>AARM</name>
-          <file> 16</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\main.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 30</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 21</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 12</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 24 26 6 33 61 60 31 28 29 18 34 32 36 41 55 57 48 47 37 38 10 25 44 49 63 62 27 56 45 42 46</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 56 26 61 31 60 25 44 34 32 28 36 49 48 24 42 41 57 55 46 62 27 63 45 47 29 37 6 38 18 10 33</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\radio_config.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 15</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 14</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 66</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 24 61 57 44 29 47 42 26 46 31 25 27 62 41 60 34 32 55 48 63 10 45</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 10 47 24 42 26 61 31 60 25 44 34 32 41 57 55 46 62 27 29 48 63 45</file>
-        </tool>
-      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\Source\spi_master\spi_master.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 17</file>
+          <file> 4</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 19</file>
+          <file> 5</file>
         </tool>
       </outputs>
     </file>
@@ -245,17 +106,184 @@
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 50</file>
+          <file> 41</file>
         </tool>
         <tool>
           <name>OBJCOPY</name>
-          <file> 23</file>
+          <file> 14</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 43 20 16 59 21 14 13 53 54 51 52</file>
+          <file> 34 8 7 50 10 71 0 57 42 43 39 40</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\adc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 47 48 53 13 35 33 22 12 18 46 38 19 21 15 31 27 44 59</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 59 13 48 19 47 12 35 22 21 38 15 31 27 46 44 33 53 18</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\initialization.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 15 28 53 13 36 47 48 33 63 38 22 12 54 46 18 59 20 19 21 32 31 27 44 45</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 45 13 48 19 47 12 35 22 21 63 59 36 15 31 27 46 44 33 53 18 54 32 38 20 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 45 13 48 19 47 12 35 22 21 16 23 37 36 15 31 27 46 44 33 53 18 54 32 38 20 28 63 29 9 66 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\radio_config.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 71</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15 48 46 35 20 38 31 13 33 19 12 18 53 27 47 22 21 44 36 54 66 32</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 66 38 15 31 13 48 19 47 12 35 22 21 27 46 44 33 53 18 20 36 54 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 0</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15 35 48 31 13 46 33 36 19 12 54 45 47 22 21 18 53 27 44 32</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 13 48 19 47 12 35 22 21 45 36 15 31 27 46 44 33 53 18 54 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 58</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32 12 19 38 70 48 35 18 31 13 33 46 36 20 47 22 21 15 54 53 27 44 45</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 13 48 19 47 12 35 22 21 36 15 31 27 46 44 33 53 18 54 32 70 45 20 38</file>
         </tool>
       </inputs>
     </file>

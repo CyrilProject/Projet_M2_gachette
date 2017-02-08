@@ -54,47 +54,33 @@
  */
 
 void GPIOTE_IRQHandler(void);
-
+void UART0_IRQHandler(void);
 
 
 int main(void)
 {
-/** GPIOTE interrupt handler.
-* Triggered on motion interrupt pin input low-to-high transition.
-*/
-//   NRF_POWER->DCDCEN=POWER_DCDCEN_DCDCEN_Disabled<<POWER_DCDCEN_DCDCEN_Pos;
-//   NRF_POWER->TASKS_LOWPWR = 1;
-//   gpiote_init();
-
   /*********************
    *    DECLARATION    *
    *********************/
   
   
    volatile uint8_t data_to_send[SIZE_PACKET];
-   volatile uint8_t flag_A = 0;
-   volatile uint8_t flag_B = 0;
+   
    volatile uint8_t count = 0;
   
    /*********************
    *  INITIALIZATION    *
    **********************/
   
-   gpiote_init();
+   
+   
 
 
  
-   
    NRF_POWER->DCDCEN = POWER_DCDCEN_DCDCEN_Disabled << POWER_DCDCEN_DCDCEN_Pos; // Disable internal DC/DC converter
    NRF_POWER->TASKS_LOWPWR = 1; // enable low power mode
    
-   
-   // Enable GPIOTE interrupt in Nested Vector Interrupt Controller
-   NVIC_EnableIRQ(GPIOTE_IRQn);
-
-   
-
-   
+   gpiote_init();
    
    /**************************
     *        MAIN LOOP       *
@@ -103,72 +89,29 @@ int main(void)
    
    while (true)
    {     
-     __WFI(); // idle mode
-//     if (count %2 == 0)
-//     {
-//       //nrf_gpio_pin_set(LED);
-//       
-//     }
-//     else 
-//     {
-//       //nrf_gpio_pin_clear(LED);
-//     }
+     __WFI(); 
    }
 }
 
 /**
  *@}
  **/
-
-void GPIOTE_IRQHandler(void)
+void UART0_IRQHandler(void)
 {
-  volatile uint8_t flag_A, flag_B, count;
-   nrf_gpio_pin_set(LED);
-  // Interruption on the pin for signal A
-  if (NRF_GPIOTE->EVENTS_IN[0] == 1)
-  {
-    nrf_gpio_pin_toggle(LED);
-    flag_A = 1;
-    if( flag_B == 0 )
+  uint8_t data[4];
+  
+  data[0] = 0x02;               // Set Length to 2 Bytes
+  data[1] = 0xFF;
+  data[2] = uart_get();
+  data[3] = uart_get();
+  
+  rf_send(data);
+  
+  if( (NRF_UART0->EVENTS_RXDRDY == 1) && (NRF_UART0->INTENSET & UART_INTENSET_RXDRDY_Msk))
     {
-      if ( count < MAX_VALUE)
-      {
-        
-        count += 1;
-      }
-    }
-    else 
-    {
-      flag_B = 0;
-    }
+      NRF_UART0->EVENTS_RXDRDY = 0;
     
-    NRF_GPIOTE->EVENTS_IN[0] = 0;
-  }
-  else 
-  {
-    // Interruption on the pin for signal B
-    
-    flag_B = 1;
-    if( flag_A == 0 )
-    {
-     
-      if ( count > 0)
-      {
-        
-        count -= 1;
-      }
     }
-    else 
-    {
-      flag_A = 0;
-    }
-    
-    NRF_GPIOTE->EVENTS_IN[1] = 0;
-  }
-      
- 
   
 }
-
-
 

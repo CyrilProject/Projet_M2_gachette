@@ -32,10 +32,16 @@ Execution is blocked until UART peripheral reports all characters to have been s
 Maximum string length is 254 characters including null character in the end.
 @param str Null terminated string to send.
 */
-void simple_uart_putstring(const uint8_t *str);
+void uart_putstring(const uint8_t *str);
 
 /* Configures UART to use 38400 baud rate.
 */
 void uart_config();
+
+void uart_conv_ascii(uint32_t number);
+
+void itoac(double data, uint8_t decimal);
+
+void uart_config_encoder();
 
 #endif

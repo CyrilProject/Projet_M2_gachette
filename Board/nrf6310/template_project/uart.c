@@ -5,7 +5,7 @@
 #include "nrf_delay.h"
 #include "nrf_gpio.h"
 
-
+const char *h="0123456789";
 
 uint8_t uart_get(void)
 {
@@ -95,3 +95,90 @@ void uart_config()
   
 }
                           
+void uart_config_encoder()
+{
+  NRF_UART0->BAUDRATE         = (UART_BAUDRATE_BAUDRATE_Baud115200 << UART_BAUDRATE_BAUDRATE_Pos);
+  NRF_UART0->ENABLE           = (UART_ENABLE_ENABLE_Enabled << UART_ENABLE_ENABLE_Pos);
+  NRF_UART0->TASKS_STARTTX    = 1;
+  NRF_UART0->TASKS_STARTRX    = 1;
+  NRF_UART0->EVENTS_RXDRDY    = 0;
+}
+                          
+void itoac(double data, uint8_t decimal)
+{
+  
+    uint8_t i;
+    uint32_t dec, dec10=10;
+    
+    /* Display a sign minus if data is negative and set data as positive */
+    if(data<0)
+    {
+        simple_uart_put('-');
+        data*=-1;
+        
+    }
+    /* dec10=10^(decimal+1) */
+    for(i=0;i<decimal;i++)
+    {
+        dec10*=10;
+    }
+    /* Decimal part with (decimal+1) figures */
+    dec=dec10*(data-(uint32_t)data);
+    /* Round to upper value */
+    if(dec%10>=5)
+    {
+        dec+=10;
+    }
+    /* If Overflow, add 1 to the entire part of data and 
+       set the decimal part to 0 */
+    if(dec>dec10-1)
+    {
+        data+=1;
+        dec=0;
+    }
+    /* Display the entire part of data */
+    uart_conv_ascii(data);
+    
+    /*In the case  we want to display the decimal part */
+    if(decimal!=0)
+    {
+        /* Display a coma */
+        simple_uart_put(',');
+        /* dec10=10^(decimal-1)*/
+        dec10/=100;
+        /* The decimal part of dec is set to (decimal) figures*/
+        dec/=10;
+        while(dec/dec10==0 && decimal>1)
+        {
+            /* Display the zero on the left of the decimal part */
+            simple_uart_put('0');
+            dec10/=10;
+            decimal--;
+        }
+        uart_conv_ascii(dec);
+    }
+
+    
+}
+
+void uart_conv_ascii(uint32_t number)
+{
+    uint8_t i=0;//counter
+    static uint8_t buf[32];
+    
+    
+    /* Fill buff with the corresponding  ASCII code of each figure of data */
+    do{
+       /*Conversion Hexa/ASCII from the end to the beginning*/
+        buf[i]=h[number%10];
+        number/=10;
+        i++;
+    }while(number);
+    
+    /* Display the buffer from the end to the beginning */
+    do{
+        i--;
+        simple_uart_put(buf[i]);
+    }while(i>0);
+    
+}

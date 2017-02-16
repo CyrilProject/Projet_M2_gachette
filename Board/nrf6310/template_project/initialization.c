@@ -32,7 +32,7 @@ void gpiote_init_encoder()
   nrf_gpio_cfg_output(21);
   nrf_gpio_cfg_output(22);
   nrf_gpio_cfg_output(23);
-  nrf_gpio_cfg_output(24);
+//  nrf_gpio_cfg_output(24);
   nrf_gpio_cfg_output(25);
   nrf_gpio_cfg_output(26);
   nrf_gpio_cfg_output(27);
@@ -56,7 +56,7 @@ void gpiote_init_encoder()
   nrf_gpio_pin_clear(21);
   nrf_gpio_pin_clear(22);
   nrf_gpio_pin_clear(23);
-  nrf_gpio_pin_clear(24);
+
   nrf_gpio_pin_clear(25);
   nrf_gpio_pin_clear(26);
   nrf_gpio_pin_clear(27);
@@ -88,6 +88,9 @@ void gpiote_init_encoder()
                                         | (GPIO_PIN_CNF_DIR_Input << GPIO_PIN_CNF_DIR_Pos);
   
   NRF_GPIOTE->INTENSET = GPIOTE_INTENSET_PORT_Enabled << GPIOTE_INTENSET_PORT_Pos;
+  
+   nrf_gpio_cfg_output(DEBUG_PIN);
+   nrf_gpio_pin_clear(DEBUG_PIN);
 }
 
 

@@ -42,8 +42,8 @@
 
 
 #define MAX_VALUE       255
-#define SIZE_PACKET     15
-
+#define SIZE_PACKET     4
+#define ID_RF           0x2
 
 /**
  * main function
@@ -54,69 +54,84 @@ void GPIOTE_IRQHandler(void);
 void UART0_IRQHandler(void);
 
 volatile uint8_t encoder_plus = 0, encoder_minus = 0;
-
+volatile uint8_t count = 0;
+volatile uint8_t flag = 0;
+uint8_t data[SIZE_PACKET];
 int main(void)
 {
   
 
   gpiote_init_encoder();
-  uart_config_encoder();
-  
+//  uart_config_encoder();
+  radio_configure();
   NRF_POWER->DCDCEN = POWER_DCDCEN_DCDCEN_Disabled << POWER_DCDCEN_DCDCEN_Pos;
   NRF_POWER->TASKS_LOWPWR = 1;
   
   // Enable GPIOTE interrupt in Nested Vector Interrupt Controller
    NVIC_EnableIRQ(GPIOTE_IRQn);  
    
-  uart_putstring("Start ! \r\n");
+//  uart_putstring("Start ! \r\n");
  
    while (true)
    {
-     uart_putstring("encoder_plus : ");
-     itoac(encoder_plus, 0);
-     uart_putstring("\r\n");
      
-     uart_putstring("encoder_minus : ");
-     itoac(encoder_minus, 0);
-     uart_putstring("\r\n");
+//     uart_putstring("encoder_plus : ");
+//     itoac(encoder_plus, 0);
+//     uart_putstring("\r\n");
+//     
+//     uart_putstring("encoder_minus : ");
+//     itoac(encoder_minus, 0);
+//     uart_putstring("\r\n");
+//     
+//     uart_putstring("encoder_count : ");
+//     itoac(count, 0);
+//     uart_putstring("\r\n");
+     
+       data[0] = 0x02;               // Set Length to 2 Bytes
+       data[1] = 0xFF;
+       data[2] = ID_RF;
+       data[3] = count;
+       
+  
+       rf_send(data);
      
      __WFI(); 
    }  
   
   
   
-  
-  /*********************
-   *    DECLARATION    *
-   *********************/
-  
-   volatile uint8_t data_to_send[SIZE_PACKET];
-   
-   volatile uint8_t count = 0;
-  
-   /*********************
-   *  INITIALIZATION    *
-   **********************/
-  
-   
-   
-
-
- 
-   NRF_POWER->DCDCEN = POWER_DCDCEN_DCDCEN_Disabled << POWER_DCDCEN_DCDCEN_Pos; // Disable internal DC/DC converter
-   NRF_POWER->TASKS_LOWPWR = 1; // enable low power mode
-   
-   gpiote_init();
-   
-   /**************************
-    *        MAIN LOOP       *
-    **************************/
-//   nrf_gpio_pin_set(LED);
-   
-   while (true)
-   {     
-     __WFI(); 
-   }
+//  
+//  /*********************
+//   *    DECLARATION    *
+//   *********************/
+//  
+//   volatile uint8_t data_to_send[SIZE_PACKET];
+//   
+//   volatile uint8_t count = 0;
+//  
+//   /*********************
+//   *  INITIALIZATION    *
+//   **********************/
+//  
+//   
+//   
+//
+//
+// 
+//   NRF_POWER->DCDCEN = POWER_DCDCEN_DCDCEN_Disabled << POWER_DCDCEN_DCDCEN_Pos; // Disable internal DC/DC converter
+//   NRF_POWER->TASKS_LOWPWR = 1; // enable low power mode
+//   
+//   gpiote_init();
+//   
+//   /**************************
+//    *        MAIN LOOP       *
+//    **************************/
+////   nrf_gpio_pin_set(LED);
+//   
+//   while (true)
+//   {     
+//     __WFI(); 
+//   }
 }
 
 /**
@@ -124,15 +139,7 @@ int main(void)
  **/
 void UART0_IRQHandler(void)
 {
-  uint8_t data[4];
-  
-  data[0] = 0x02;               // Set Length to 2 Bytes
-  data[1] = 0xFF;
-  data[2] = uart_get();
-  data[3] = uart_get();
-  
-  rf_send(data);
-  
+    
   if( (NRF_UART0->EVENTS_RXDRDY == 1) && (NRF_UART0->INTENSET & UART_INTENSET_RXDRDY_Msk))
     {
       NRF_UART0->EVENTS_RXDRDY = 0;
@@ -143,14 +150,28 @@ void UART0_IRQHandler(void)
 
 void GPIOTE_IRQHandler(void)
 {
-  uart_putstring("Inside GPIOT_IRQHandler\r\n");
-  if ((NRF_GPIO->IN&0x00000002) == 0x1)
+  
+//  uart_putstring("Inside GPIOT_IRQHandler\r\n");
+  if ((NRF_GPIO->IN&0x00000020) == 0x00000020)
   {
-    encoder_plus = 1;
+//    uart_putstring("Test1\r\n");
+    if (count < 255)
+    {
+        count += 1;
+    }
+    
+//    encoder_plus = 1;
+//    nrf_gpio_pin_toggle(DEBUG_PIN);
   }
-  else if ((NRF_GPIO->IN&0x00000004) == 0x1)
+  else if ((NRF_GPIO->IN&0x00000080) == 0x00000080)
   {
-    encoder_minus = 1;
+//    uart_putstring("Test2\r\n");
+   
+    if (count > 0)
+    {
+       count -= 1;
+    }
+   //    encoder_minus = 1;
   }
 
   // Event causing the interrupt must be cleared

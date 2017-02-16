@@ -8,7 +8,7 @@
 #define LED                    18
 #define UART_TX_PIN             3
 #define UART_RX_PIN             1
-
+#define DEBUG_PIN               26
 
 void gpiote_init_encoder();
 void gpiote_init(void);

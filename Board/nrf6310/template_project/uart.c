@@ -91,7 +91,7 @@ void uart_config()
   NRF_UART0->TASKS_STARTTX    = 1;
   NRF_UART0->TASKS_STARTRX    = 1;
   NRF_UART0->EVENTS_RXDRDY    = 0;
-  NRF_UART0->INTENSET         = (UART_INTENSET_RXDRDY_Enabled <<  UART_INTENSET_RXDRDY_Pos); 
+//  NRF_UART0->INTENSET         = (UART_INTENSET_RXDRDY_Enabled <<  UART_INTENSET_RXDRDY_Pos); 
   
 }
                           

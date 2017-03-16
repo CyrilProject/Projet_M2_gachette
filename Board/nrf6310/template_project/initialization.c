@@ -15,9 +15,9 @@ void gpiote_init_encoder()
 { 
   //nrf_gpio_cfg_output(LED2);
 //nrf_gpio_pin_clear(LED2);
-  //nrf_gpio_cfg_output(1);
+  nrf_gpio_cfg_output(1);
   nrf_gpio_cfg_output(2);
-  //nrf_gpio_cfg_output(3);
+  nrf_gpio_cfg_output(3);
   nrf_gpio_cfg_output(4);
   //nrf_gpio_cfg_output(5);
   nrf_gpio_cfg_output(6);
@@ -39,9 +39,9 @@ void gpiote_init_encoder()
   nrf_gpio_cfg_output(28);
   nrf_gpio_cfg_output(29);
   nrf_gpio_cfg_output(30);
-  //nrf_gpio_pin_clear(1);
+  nrf_gpio_pin_clear(1);
   nrf_gpio_pin_clear(2);
-  //nrf_gpio_pin_clear(3);
+  nrf_gpio_pin_clear(3);
   nrf_gpio_pin_clear(4);
   //nrf_gpio_pin_clear(5);
   nrf_gpio_pin_clear(6);
@@ -69,10 +69,10 @@ void gpiote_init_encoder()
 //nrf_gpio_cfg_output(PIN_BUCK);
 //nrf_gpio_pin_clear(PIN_BUCK); // we will change it when the consuption will be ok
   
-  nrf_gpio_cfg_output(UART_TX_PIN);
-  nrf_gpio_cfg_input(UART_RX_PIN, NRF_GPIO_PIN_NOPULL);  
-  NRF_UART0->PSELTXD = UART_TX_PIN;
-  NRF_UART0->PSELRXD = UART_RX_PIN;
+//  nrf_gpio_cfg_output(UART_TX_PIN);
+//  nrf_gpio_cfg_input(UART_RX_PIN, NRF_GPIO_PIN_NOPULL);  
+//  NRF_UART0->PSELTXD = UART_TX_PIN;
+//  NRF_UART0->PSELRXD = UART_RX_PIN;
  
   
   NRF_GPIO->PIN_CNF[PIN_SIGNAL_A]=(GPIO_PIN_CNF_SENSE_High << GPIO_PIN_CNF_SENSE_Pos)
@@ -120,12 +120,8 @@ void gpiote_init_encoder()
 //  
 //  nrf_gpiote_event_config(0, PIN_SIGNAL_A, NRF_GPIOTE_POLARITY_LOTOHI);
 //  nrf_gpiote_event_config(1, PIN_SIGNAL_B, NRF_GPIOTE_POLARITY_LOTOHI);
+  
 
-  nrf_gpio_cfg_output(UART_TX_PIN);
-  nrf_gpio_cfg_input(UART_RX_PIN, NRF_GPIO_PIN_NOPULL);  
-
-  NRF_UART0->PSELTXD = UART_TX_PIN;
-  NRF_UART0->PSELRXD = UART_RX_PIN;
 
 
   // Enable interrupt for NRF_GPIOTE->EVENTS_IN[0] event

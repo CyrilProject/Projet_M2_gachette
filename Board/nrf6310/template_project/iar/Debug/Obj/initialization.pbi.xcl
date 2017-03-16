@@ -1,10 +1,10 @@
-"C:\Users\CYRIM\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project\initialization.c"
+"C:\Users\fabian\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project\initialization.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\CYRIM\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project\iar\..\..\..\..\Include
+C:\Users\fabian\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project\iar\..\..\..\..\Include
 -I
-C:\Users\CYRIM\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project\iar\..
+C:\Users\fabian\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project\iar\..
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -I
@@ -12,9 +12,9 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\CYRIM\Documents\GitHub\Projet_M2_gachette\Include
+C:\Users\fabian\Documents\GitHub\Projet_M2_gachette\Include
 -I
-C:\Users\CYRIM\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project
+C:\Users\fabian\Documents\GitHub\Projet_M2_gachette\Board\nrf6310\template_project
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -DDEBUG=1

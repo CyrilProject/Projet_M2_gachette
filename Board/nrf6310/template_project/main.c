@@ -42,7 +42,7 @@
 
 
 #define MAX_VALUE       255
-#define SIZE_PACKET     4
+#define SIZE_PACKET     6
 #define ID_RF           0x2
 
 /**
@@ -53,14 +53,12 @@
 void GPIOTE_IRQHandler(void);
 void UART0_IRQHandler(void);
 
-volatile uint8_t encoder_plus = 0, encoder_minus = 0;
-volatile uint8_t count = 0;
-volatile uint8_t flag = 0;
+uint8_t encoder_plus = 0, encoder_minus = 0;
+uint8_t count = 0;
+uint8_t flag = 0;
 uint8_t data[SIZE_PACKET];
 int main(void)
 {
-  
-
   gpiote_init_encoder();
 //  uart_config_encoder();
   radio_configure();
@@ -74,7 +72,6 @@ int main(void)
  
    while (true)
    {
-     
 //     uart_putstring("encoder_plus : ");
 //     itoac(encoder_plus, 0);
 //     uart_putstring("\r\n");
@@ -87,12 +84,13 @@ int main(void)
 //     itoac(count, 0);
 //     uart_putstring("\r\n");
      
-       data[0] = 0x02;               // Set Length to 2 Bytes
+       data[0] = 0x03;               // Set Length to 2 Bytes
        data[1] = 0xFF;
-       data[2] = ID_RF;
-       data[3] = count;
+       data[2] = 0xFF;
+       data[3] = 0xFF;
+       data[4] = ID_RF;
+       data[5] = count;
        
-  
        rf_send(data);
      
      __WFI(); 
@@ -152,7 +150,7 @@ void GPIOTE_IRQHandler(void)
 {
   
 //  uart_putstring("Inside GPIOT_IRQHandler\r\n");
-  if ((NRF_GPIO->IN&0x00000020) == 0x00000020)
+  if ((NRF_GPIO->IN&0x00200000) == 0x00200000)
   {
 //    uart_putstring("Test1\r\n");
     if (count < 255)
@@ -161,9 +159,9 @@ void GPIOTE_IRQHandler(void)
     }
     
 //    encoder_plus = 1;
-//    nrf_gpio_pin_toggle(DEBUG_PIN);
+    nrf_gpio_pin_toggle(DEBUG_PIN);
   }
-  else if ((NRF_GPIO->IN&0x00000080) == 0x00000080)
+  else if ((NRF_GPIO->IN&0x00800000) == 0x00800000)
   {
 //    uart_putstring("Test2\r\n");
    
@@ -173,6 +171,8 @@ void GPIOTE_IRQHandler(void)
     }
    //    encoder_minus = 1;
   }
+  
+  nrf_gpio_pin_toggle(DEBUG_PIN);
 
   // Event causing the interrupt must be cleared
   NRF_GPIOTE->EVENTS_PORT = 0;

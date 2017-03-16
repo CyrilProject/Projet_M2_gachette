@@ -18,8 +18,8 @@
 #define PACKET0_S0_SIZE                  (0UL)  //!< S0 size in bits
 #define PACKET0_PAYLOAD_SIZE             (0UL)  //!< payload size in bits
 #define PACKET1_BASE_ADDRESS_LENGTH      (4UL)  //!< base address length in bytes
-#define PACKET1_STATIC_LENGTH            (11UL)  //!< static length in bytes
-#define PACKET1_PAYLOAD_SIZE             (11UL)  //!< payload size in bits
+#define PACKET1_STATIC_LENGTH            (13UL)  //!< static length in bytes
+#define PACKET1_PAYLOAD_SIZE             (13UL)  //!< payload size in bits
 #define PIN_BUCK 0
 
 /**

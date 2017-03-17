@@ -13,67 +13,71 @@
 
 void gpiote_init_encoder()
 { 
-  //nrf_gpio_cfg_output(LED2);
-//nrf_gpio_pin_clear(LED2);
-  nrf_gpio_cfg_output(1);
-  nrf_gpio_cfg_output(2);
-  nrf_gpio_cfg_output(3);
-  nrf_gpio_cfg_output(4);
-  //nrf_gpio_cfg_output(5);
-  nrf_gpio_cfg_output(6);
-  //nrf_gpio_cfg_output(7);
-  nrf_gpio_cfg_output(12);
-  nrf_gpio_cfg_output(13);
-  nrf_gpio_cfg_output(14);
-  nrf_gpio_cfg_output(15);
-  nrf_gpio_cfg_output(16);
-  nrf_gpio_cfg_output(17);
-  nrf_gpio_cfg_output(20);
-  nrf_gpio_cfg_output(21);
-  nrf_gpio_cfg_output(22);
-  nrf_gpio_cfg_output(23);
-//  nrf_gpio_cfg_output(24);
-  nrf_gpio_cfg_output(25);
-  nrf_gpio_cfg_output(26);
-  nrf_gpio_cfg_output(27);
-  nrf_gpio_cfg_output(28);
-  nrf_gpio_cfg_output(29);
-  nrf_gpio_cfg_output(30);
-  nrf_gpio_pin_clear(1);
-  nrf_gpio_pin_clear(2);
-  nrf_gpio_pin_clear(3);
-  nrf_gpio_pin_clear(4);
-  //nrf_gpio_pin_clear(5);
-  nrf_gpio_pin_clear(6);
-  //nrf_gpio_pin_clear(7);
-  nrf_gpio_pin_clear(12);
-  nrf_gpio_pin_clear(13);
-  nrf_gpio_pin_clear(14);
-  nrf_gpio_pin_clear(15);
-  nrf_gpio_pin_clear(16);
-  nrf_gpio_pin_clear(17);
-  nrf_gpio_pin_clear(20);
-  nrf_gpio_pin_clear(21);
-  nrf_gpio_pin_clear(22);
-  nrf_gpio_pin_clear(23);
-
-  nrf_gpio_pin_clear(25);
-  nrf_gpio_pin_clear(26);
-  nrf_gpio_pin_clear(27);
-  nrf_gpio_pin_clear(28);
-  nrf_gpio_pin_clear(29);
-  nrf_gpio_pin_clear(30);  
-  nrf_gpio_cfg_output(LED);
-  nrf_gpio_pin_clear(LED);
+  nrf_gpio_cfg_output(BUCK_ON);            
+  nrf_gpio_cfg_output(1);               // unused
+  nrf_gpio_cfg_output(LED);             
+  nrf_gpio_cfg_output(3);               // unused
+  nrf_gpio_cfg_input(BAT_LVL, GPIO_PIN_CNF_PULL_Disabled);          
+  nrf_gpio_cfg_output(5);               // unused
+  nrf_gpio_cfg_output(BAT_LVL_ON);
+  nrf_gpio_cfg_output(7);               // unused
+  nrf_gpio_cfg_output(8);               // unused
+  nrf_gpio_cfg_output(9);               // unused
+  nrf_gpio_cfg_output(10);              // unused
+  nrf_gpio_cfg_output(11);              // unused
+  nrf_gpio_cfg_output(12);              // unused
+  nrf_gpio_cfg_output(13);              // unused
+  nrf_gpio_cfg_output(14);              // unused
+  nrf_gpio_cfg_output(15);              // unused
+  nrf_gpio_cfg_output(16);              // unused
+  nrf_gpio_cfg_output(17);              // unused
+  nrf_gpio_cfg_output(18);              // unused
+  nrf_gpio_cfg_output(19);              // unused
+  nrf_gpio_cfg_output(20);              // unused
+  // SIGNAL A encoder
+  nrf_gpio_cfg_output(22);              // unused
+  // SIGNAL B encoder
+  nrf_gpio_cfg_output(24);              // unused
+  nrf_gpio_cfg_output(25);              // unused
+  nrf_gpio_cfg_output(26);              // unused
+  nrf_gpio_cfg_output(27);              // unused
+  nrf_gpio_cfg_output(28);              // unused
+  nrf_gpio_cfg_output(29);              // unused
+  nrf_gpio_cfg_output(30);              // unused
   
-//nrf_gpio_cfg_output(PIN_BUCK);
-//nrf_gpio_pin_clear(PIN_BUCK); // we will change it when the consuption will be ok
-  
-//  nrf_gpio_cfg_output(UART_TX_PIN);
-//  nrf_gpio_cfg_input(UART_RX_PIN, NRF_GPIO_PIN_NOPULL);  
-//  NRF_UART0->PSELTXD = UART_TX_PIN;
-//  NRF_UART0->PSELRXD = UART_RX_PIN;
+  nrf_gpio_pin_set(BUCK_ON);            // turn off buck
+  nrf_gpio_pin_clear(1);                // unused
+  nrf_gpio_pin_clear(LED);              // turn off led
+  nrf_gpio_pin_clear(3);                // unused
+  // BAT_LVL is an input
+  nrf_gpio_pin_clear(5);                // unused
+  nrf_gpio_pin_clear(BAT_LVL_ON);       // turn off bat checking
+  nrf_gpio_pin_clear(7);                // unused
+  nrf_gpio_pin_clear(8);                // unused
+  nrf_gpio_pin_clear(9);                // unused
+  nrf_gpio_pin_clear(10);               // unused
+  nrf_gpio_pin_clear(11);               // unused
+  nrf_gpio_pin_clear(12);               // unused
+  nrf_gpio_pin_clear(13);               // unused
+  nrf_gpio_pin_clear(14);               // unused
+  nrf_gpio_pin_clear(15);               // unused
+  nrf_gpio_pin_clear(16);               // unused
+  nrf_gpio_pin_clear(17);               // unused
+  nrf_gpio_pin_clear(18);               // unused
+  nrf_gpio_pin_clear(19);               // unused
+  nrf_gpio_pin_clear(20);               // unused
+  // SIGNAL A encoder
+  nrf_gpio_pin_clear(22);               // unused
+  // SIGNAL B encoder
+  nrf_gpio_pin_clear(24);               // unused
+  nrf_gpio_pin_clear(25);               // unused
+  nrf_gpio_pin_clear(26);               // unused
+  nrf_gpio_pin_clear(27);               // unused
+  nrf_gpio_pin_clear(28);               // unused
+  nrf_gpio_pin_clear(29);               // unused
+  nrf_gpio_pin_clear(30);               // unused
  
+  /* SIGNAL A&B init */
   
   NRF_GPIO->PIN_CNF[PIN_SIGNAL_A]=(GPIO_PIN_CNF_SENSE_High << GPIO_PIN_CNF_SENSE_Pos)
                                         | (GPIO_PIN_CNF_DRIVE_S0S1 << GPIO_PIN_CNF_DRIVE_Pos)
@@ -87,102 +91,5 @@ void gpiote_init_encoder()
                                         | (GPIO_PIN_CNF_INPUT_Connect << GPIO_PIN_CNF_INPUT_Pos)
                                         | (GPIO_PIN_CNF_DIR_Input << GPIO_PIN_CNF_DIR_Pos);
   
-  NRF_GPIOTE->INTENSET = GPIOTE_INTENSET_PORT_Enabled << GPIOTE_INTENSET_PORT_Pos;
-  
-   nrf_gpio_cfg_output(DEBUG_PIN);
-   nrf_gpio_pin_clear(DEBUG_PIN);
+  NRF_GPIOTE->INTENSET = GPIOTE_INTENSET_PORT_Enabled << GPIOTE_INTENSET_PORT_Pos; // enable the device to power on after IDLE
 }
-
-
- void gpiote_init(void)
-{
- 
-
-//  *(uint32_t *)0x40000504 = 0xC007FFDF; // Workaround for PAN_028 rev1.1 anomaly 23 - System: Manual setup is required to enable use of peripherals
-
-//  nrf_gpio_cfg_input(6,NRF_GPIO_PIN_NOPULL);
-  // Configure GPIOTE channel BUUTTON to generate event when MOTION_INTERRUPT_PIN_NUMBER goes from Low to High
-//
-//  NRF_GPIO->PIN_CNF[PIN_SIGNAL_A]=(GPIO_PIN_CNF_SENSE_Low << GPIO_PIN_CNF_SENSE_Pos) //GPIO_PIN_CNF_SENSE_Low
-//                                        | (GPIO_PIN_CNF_DRIVE_S0S1 << GPIO_PIN_CNF_DRIVE_Pos)
-//                                        | (GPIO_PIN_CNF_PULL_Disabled << GPIO_PIN_CNF_PULL_Pos)
-//                                        | (GPIO_PIN_CNF_INPUT_Connect << GPIO_PIN_CNF_INPUT_Pos)
-//                                        | (GPIO_PIN_CNF_DIR_Input << GPIO_PIN_CNF_DIR_Pos);
-//  
-//  NRF_GPIO->PIN_CNF[PIN_SIGNAL_B]=(GPIO_PIN_CNF_SENSE_Low << GPIO_PIN_CNF_SENSE_Pos) //GPIO_PIN_CNF_SENSE_Low
-//                                        | (GPIO_PIN_CNF_DRIVE_S0S1 << GPIO_PIN_CNF_DRIVE_Pos)
-//                                        | (GPIO_PIN_CNF_PULL_Disabled << GPIO_PIN_CNF_PULL_Pos)
-//                                        | (GPIO_PIN_CNF_INPUT_Connect << GPIO_PIN_CNF_INPUT_Pos)
-//                                        | (GPIO_PIN_CNF_DIR_Input << GPIO_PIN_CNF_DIR_Pos);
-  
-//  nrf_gpio_cfg_input(PIN_SIGNAL_A, NRF_GPIO_PIN_NOPULL);
-//  nrf_gpio_cfg_input(PIN_SIGNAL_B, NRF_GPIO_PIN_NOPULL);
-//  
-//  nrf_gpiote_event_config(0, PIN_SIGNAL_A, NRF_GPIOTE_POLARITY_LOTOHI);
-//  nrf_gpiote_event_config(1, PIN_SIGNAL_B, NRF_GPIOTE_POLARITY_LOTOHI);
-  
-
-
-
-  // Enable interrupt for NRF_GPIOTE->EVENTS_IN[0] event
-  //NRF_GPIOTE->INTENSET = GPIOTE_INTENSET_IN0_Enabled<<GPIOTE_INTENSET_PORT_Pos;
-  
-//NRF_GPIOTE->INTENSET = (GPIOTE_INTENSET_PORT_Enabled << GPIOTE_INTENSET_PORT_Pos); //&& (GPIOTE_INTENSET_IN1_Enabled << GPIOTE_INTENSET_IN0_Pos);
-                                        
-//nrf_gpio_cfg_output(LED2);
-//nrf_gpio_pin_clear(LED2);
-  nrf_gpio_cfg_output(1);
-  nrf_gpio_cfg_output(2);
-  nrf_gpio_cfg_output(3);
-  nrf_gpio_cfg_output(4);
-  nrf_gpio_cfg_output(5);
-//  nrf_gpio_cfg_output(6);
-//  nrf_gpio_cfg_output(7);
-  nrf_gpio_cfg_output(12);
-  nrf_gpio_cfg_output(13);
-  nrf_gpio_cfg_output(14);
-  nrf_gpio_cfg_output(15);
-  nrf_gpio_cfg_output(16);
-  nrf_gpio_cfg_output(17);
-  nrf_gpio_cfg_output(20);
-  nrf_gpio_cfg_output(21);
-  nrf_gpio_cfg_output(22);
-  nrf_gpio_cfg_output(23);
-  nrf_gpio_cfg_output(24);
-  nrf_gpio_cfg_output(25);
-  nrf_gpio_cfg_output(26);
-  nrf_gpio_cfg_output(27);
-  nrf_gpio_cfg_output(28);
-  nrf_gpio_cfg_output(29);
-  nrf_gpio_cfg_output(30);
-  //nrf_gpio_pin_clear(1);
-  nrf_gpio_pin_clear(2);
-  //nrf_gpio_pin_clear(3);
-  nrf_gpio_pin_clear(4);
-  nrf_gpio_pin_clear(5);
-//  nrf_gpio_pin_clear(6);
-//  nrf_gpio_pin_clear(7);
-  nrf_gpio_pin_clear(12);
-  nrf_gpio_pin_clear(13);
-  nrf_gpio_pin_clear(14);
-  nrf_gpio_pin_clear(15);
-  nrf_gpio_pin_clear(16);
-  nrf_gpio_pin_clear(17);
-  nrf_gpio_pin_clear(20);
-  nrf_gpio_pin_clear(21);
-  nrf_gpio_pin_clear(22);
-  nrf_gpio_pin_clear(23);
-  nrf_gpio_pin_clear(24);
-  nrf_gpio_pin_clear(25);
-  nrf_gpio_pin_clear(26);
-  nrf_gpio_pin_clear(27);
-  nrf_gpio_pin_clear(28);
-  nrf_gpio_pin_clear(29);
-  nrf_gpio_pin_clear(30);
-  
-  nrf_gpio_cfg_output(LED);
-  nrf_gpio_pin_clear(LED);
-//nrf_gpio_cfg_output(PIN_BUCK);
-//nrf_gpio_pin_clear(PIN_BUCK); // we will change it when the consuption will be ok
-}
-

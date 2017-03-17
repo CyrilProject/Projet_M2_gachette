@@ -28,7 +28,6 @@
 #include "nrf_gpio.h"
 #include "nrf_delay.h"
 #include "nrf_gpiote.h"
-#include "uart.h"
    
 #include "initialization.h"
 #include "spi_master.h"
@@ -50,8 +49,8 @@
  * \return 0. int return type required by ANSI/ISO standard. 
  */
 
-void GPIOTE_IRQHandler(void);
-void UART0_IRQHandler(void);
+//void GPIOTE_IRQHandler(void);
+
 
 uint8_t encoder_plus = 0, encoder_minus = 0;
 uint8_t count = 0;
@@ -59,91 +58,32 @@ uint8_t flag = 0;
 uint8_t data[SIZE_PACKET];
 int main(void)
 {
-  gpiote_init_encoder();
-//  uart_config_encoder();
+  gpiote_init_encoder(); 
+
   radio_configure();
   NRF_POWER->DCDCEN = POWER_DCDCEN_DCDCEN_Disabled << POWER_DCDCEN_DCDCEN_Pos;
   NRF_POWER->TASKS_LOWPWR = 1;
   
+  
+  
   // Enable GPIOTE interrupt in Nested Vector Interrupt Controller
    NVIC_EnableIRQ(GPIOTE_IRQn);  
    
-//  uart_putstring("Start ! \r\n");
+   
  
    while (true)
    {
-//     uart_putstring("encoder_plus : ");
-//     itoac(encoder_plus, 0);
-//     uart_putstring("\r\n");
-//     
-//     uart_putstring("encoder_minus : ");
-//     itoac(encoder_minus, 0);
-//     uart_putstring("\r\n");
-//     
-//     uart_putstring("encoder_count : ");
-//     itoac(count, 0);
-//     uart_putstring("\r\n");
      
-       data[0] = 0x03;               // Set Length to 2 Bytes
+       data[0] = 0x03;                   // Set Length to 2 Bytes
        data[1] = 0xFF;
        data[2] = 0xFF;
        data[3] = 0xFF;
        data[4] = ID_RF;
        data[5] = count;
-       
-       rf_send(data);
-     
+        
+     rf_send(data);
      __WFI(); 
    }  
-  
-  
-  
-//  
-//  /*********************
-//   *    DECLARATION    *
-//   *********************/
-//  
-//   volatile uint8_t data_to_send[SIZE_PACKET];
-//   
-//   volatile uint8_t count = 0;
-//  
-//   /*********************
-//   *  INITIALIZATION    *
-//   **********************/
-//  
-//   
-//   
-//
-//
-// 
-//   NRF_POWER->DCDCEN = POWER_DCDCEN_DCDCEN_Disabled << POWER_DCDCEN_DCDCEN_Pos; // Disable internal DC/DC converter
-//   NRF_POWER->TASKS_LOWPWR = 1; // enable low power mode
-//   
-//   gpiote_init();
-//   
-//   /**************************
-//    *        MAIN LOOP       *
-//    **************************/
-////   nrf_gpio_pin_set(LED);
-//   
-//   while (true)
-//   {     
-//     __WFI(); 
-//   }
-}
-
-/**
- *@}
- **/
-void UART0_IRQHandler(void)
-{
-    
-  if( (NRF_UART0->EVENTS_RXDRDY == 1) && (NRF_UART0->INTENSET & UART_INTENSET_RXDRDY_Msk))
-    {
-      NRF_UART0->EVENTS_RXDRDY = 0;
-    
-    }
-  
 }
 
 void GPIOTE_IRQHandler(void)
@@ -159,7 +99,7 @@ void GPIOTE_IRQHandler(void)
     }
     
 //    encoder_plus = 1;
-    nrf_gpio_pin_toggle(DEBUG_PIN);
+//    nrf_gpio_pin_toggle(LED);
   }
   else if ((NRF_GPIO->IN&0x00800000) == 0x00800000)
   {
@@ -172,7 +112,7 @@ void GPIOTE_IRQHandler(void)
    //    encoder_minus = 1;
   }
   
-  nrf_gpio_pin_toggle(DEBUG_PIN);
+ // nrf_gpio_pin_toggle(LED);
 
   // Event causing the interrupt must be cleared
   NRF_GPIOTE->EVENTS_PORT = 0;

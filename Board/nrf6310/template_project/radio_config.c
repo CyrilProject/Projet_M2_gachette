@@ -192,4 +192,10 @@ void rf_send(uint8_t *packet)
   while(NRF_RADIO->EVENTS_DISABLED == 0U)
   {
   }
+  
+  /* Stop 16 MHz crystal oscillator */
+  NRF_CLOCK->TASKS_HFCLKSTOP =1; 
+        
+  
+  
 }
